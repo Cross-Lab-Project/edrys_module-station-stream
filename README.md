@@ -4,7 +4,7 @@ This module will allow a station to send a video and or audio stream to all conn
 
 Import the module via:
 
-`https://cross-lab-project.github.io/edrys_module-avr8js/index.html`
+`https://cross-lab-project.github.io/edrys_module-station-stream/index.html`
 
 ## Settings
 

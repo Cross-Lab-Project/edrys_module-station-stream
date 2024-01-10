@@ -19,6 +19,11 @@
       src="https://edrys-org.github.io/edrys/module/vendor/alpine.min.js"
     ></script>
 
+    <link
+      rel="stylesheet"
+      href="https://edrys-org.github.io/edrys/module/vendor/water.min.css"
+    />
+
     <script>
       function getServerID() {
         return btoa(Edrys.class_id + Edrys.liveRoom.name)
@@ -93,9 +98,45 @@
           startClient()
         }
       })
+
+      Edrys.onMessage(({ from, subject, body }) => {
+        if (subject === 'reload') {
+          setTimeout(
+            function () {
+              window.location.reload()
+            },
+            Edrys.role === 'station' ? 100 : 1000
+          )
+        }
+      })
     </script>
+
+    <style>
+      button {
+        position: absolute;
+        top: 22px;
+        margin-left: 2px;
+        z-index: 999;
+        display: block;
+        padding-left: 15px;
+        padding-right: 15px;
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+
+      video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
   </head>
   <body>
     <video id="video" autoplay style="width: 100%" controls></video>
+    <button
+      onclick="Edrys.sendMessage('reload', true)"
+      title="force reload of the camera"
+    >
+      ⟳
+    </button>
   </body>
 </html>

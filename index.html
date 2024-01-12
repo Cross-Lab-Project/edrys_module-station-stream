@@ -33,7 +33,7 @@
         var stream = null
         var peer = new Peer(getServerID(), {
           debug: 3,
-          config: JSON.stringify({
+          config: {
             iceServers: [
               {
                 urls: 'turn:standard.relay.metered.ca:443',
@@ -59,7 +59,7 @@
                 credential: 'DQURkUHBHZ0Ss4iv',
               },
             ],
-          }),
+          },
         })
 
         var getUserMedia =

@@ -31,7 +31,25 @@
 
       function startServer() {
         var stream = null
-        var peer = new Peer(getServerID())
+        var peer = new Peer(getServerID(), {
+          config: {
+            iceServers: [
+              {
+                urls: 'stun:stun.relay.metered.ca:80',
+              },
+              {
+                urls: 'turn:a.relay.metered.ca:80',
+                username: '5cedc2adff8a8f714555bd79',
+                credential: 'azL7pmqh8DkgS50Y',
+              },
+              {
+                urls: 'turn:a.relay.metered.ca:80?transport=tcp',
+                username: '5cedc2adff8a8f714555bd79',
+                credential: 'azL7pmqh8DkgS50Y',
+              },
+            ],
+          },
+        })
 
         var getUserMedia =
           navigator.getUserMedia ||

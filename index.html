@@ -31,7 +31,8 @@
 
       function startServer() {
         var stream = null
-        var peer = new Peer(getServerID(), {
+        var peer = new Peer({
+          id: getServerID(),
           debug: 3,
           config: {
             iceServers: [

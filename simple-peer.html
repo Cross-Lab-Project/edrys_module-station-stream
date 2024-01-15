@@ -36,34 +36,10 @@
           config: {
             iceServers: [
               {
-                url: 'stun:stun.relay.metered.ca:80',
-              },
-              {
-                url: 'turn:standard.relay.metered.ca:80',
-                username: '459ddd8f4883cd02421f2589',
-                credential: 'DQURkUHBHZ0Ss4iv',
-              },
-              {
-                url: 'turn:standard.relay.metered.ca:80?transport=tcp',
-                username: '459ddd8f4883cd02421f2589',
-                credential: 'DQURkUHBHZ0Ss4iv',
-              },
-              {
-                url: 'turn:standard.relay.metered.ca:443',
-                username: '459ddd8f4883cd02421f2589',
-                credential: 'DQURkUHBHZ0Ss4iv',
-              },
-              {
-                url: 'turns:standard.relay.metered.ca:443?transport=tcp',
-                username: '459ddd8f4883cd02421f2589',
-                credential: 'DQURkUHBHZ0Ss4iv',
-              },
-
-              {
                 urls: 'stun:stun.relay.metered.ca:80',
               },
               {
-                url: 'turn:standard.relay.metered.ca:80',
+                urls: 'turn:standard.relay.metered.ca:80',
                 username: '459ddd8f4883cd02421f2589',
                 credential: 'DQURkUHBHZ0Ss4iv',
               },
@@ -129,15 +105,15 @@
           console.log('Client ID is: ' + id)
 
           conn = peer.connect(getServerID())
+        })
 
-          peer.on('call', function (call) {
-            call.answer()
+        peer.on('call', function (call) {
+          call.answer()
 
-            call.on('stream', function (remoteStream) {
-              const videoElement = document.getElementById('video')
-              videoElement.srcObject = remoteStream
-              videoElement.autoplay = true
-            })
+          call.on('stream', function (remoteStream) {
+            const videoElement = document.getElementById('video')
+            videoElement.srcObject = remoteStream
+            videoElement.autoplay = true
           })
         })
       }

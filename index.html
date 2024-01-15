@@ -36,27 +36,12 @@
           config: {
             iceServers: [
               {
-                url: 'stun:stun.relay.metered.ca:80',
+                urls: 'stun:stun.goldi-labs.de:3478',
               },
               {
-                url: 'turn:standard.relay.metered.ca:80',
-                username: '459ddd8f4883cd02421f2589',
-                credential: 'DQURkUHBHZ0Ss4iv',
-              },
-              {
-                url: 'turn:standard.relay.metered.ca:80?transport=tcp',
-                username: '459ddd8f4883cd02421f2589',
-                credential: 'DQURkUHBHZ0Ss4iv',
-              },
-              {
-                url: 'turn:standard.relay.metered.ca:443',
-                username: '459ddd8f4883cd02421f2589',
-                credential: 'DQURkUHBHZ0Ss4iv',
-              },
-              {
-                url: 'turns:standard.relay.metered.ca:443?transport=tcp',
-                username: '459ddd8f4883cd02421f2589',
-                credential: 'DQURkUHBHZ0Ss4iv',
+                urls: 'turn:turn.goldi-labs.de:3478',
+                username: 'goldi',
+                credential: 'goldi',
               },
             ],
           },
